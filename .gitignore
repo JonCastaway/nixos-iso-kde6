@@ -1,2 +1,18 @@
-result
-/result
+# Nix store
+/nix
+# Nix garbage collector
+.nix-gc/
+# Nix build products
+build/
+# Nix derivations
+result/
+# Nix profiles
+profile/
+# Nix daemon socket
+.nix-socket
+# Nix user environment
+.nix-profile
+# Nix user configuration
+.nix-defexpr
+# Nix user channels
+.nix-channels
