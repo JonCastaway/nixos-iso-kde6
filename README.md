@@ -31,20 +31,5 @@ Or, for a one-off solution, run:
 nix build --override-input nixpkgs nixpkgs/nixos-unstable github:JonCastaway/nixos-iso-kde6
 ```
 
-## Customizing the ISO
+## Customising the ISO
 The ISO configuration is defined in `configuration.nix`. You can modify it to add or remove packages, change the default user, and more.
-
-To add KDE Plasma 6 to the ISO, add the following lines to `configuration.nix`:
-
-``` services.xserver.desktopManager.plasma6 = {
-  enable = true;
-  desktopEnvironments = [ "plasma" ];
-};
-
-environment.systemPackages = [
-  # Add KDE Plasma 6 packages here
-  kde-plasma
-  kde-workspace
-  plasma-nm
-  # ...
-];
