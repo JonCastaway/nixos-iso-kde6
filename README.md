@@ -9,27 +9,34 @@ You can download the ISO from the [releases](https://github.com/JonCastaway/nixo
 To build the ISO, you need an x86_64 NixOS system or any x86_64 Linux system with nix installed.
 
 You can either clone this repository and run `nix build` in the root directory, or run the following command from anywhere you have write access:
-```bash
+
+```
 nix build github:JonCastaway/nixos-iso-kde6
-```bash
+```
 
 ### Updating
 This repository is locked to a specific revision of nixpkgs, as seen in `flake.lock`. If you want to build it with the latest unstable nixpkgs, run the following commands in the root directory:
-```bash
+
+```
 nix flake update
+```
+
+```
 nix build
-```bash
+```
+
 Or, for a one-off solution, run:
-```bash
+
+```
 nix build --override-input nixpkgs nixpkgs/nixos-unstable github:JonCastaway/nixos-iso-kde6
-```bash
+```
 
 ## Customizing the ISO
 The ISO configuration is defined in `configuration.nix`. You can modify it to add or remove packages, change the default user, and more.
 
 To add KDE Plasma 6 to the ISO, add the following lines to `configuration.nix`:
-```nix
-services.xserver.desktopManager.plasma6 = {
+
+``` services.xserver.desktopManager.plasma6 = {
   enable = true;
   desktopEnvironments = [ "plasma" ];
 };
