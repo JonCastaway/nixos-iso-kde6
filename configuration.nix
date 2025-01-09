@@ -1,20 +1,21 @@
 { pkgs, lib, nixpkgs, ... }:
 
 {
-  # Enable bcachefs support
+  # Enable bcachefs support with the latest kernel packages
   services.xserver.desktopManager.plasma6.kernelPackages = pkgs.linuxPackages_latest.boot.kernelPackages + [ pkgs.bcachefs ];
   services.xserver.desktopManager.plasma6.supportedFilesystems = lib.mkForce [ "bcachefs" "btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs" ];
 
-  # Choose the system packages you want installed here.
+  # System packages to be installed
   environment.systemPackages = with pkgs; [
     neovim
     fastfetch
     man-pages
     man-pages-posix
-    keyutils # for bcachefs encryption
+    keyutils # Required for bcachefs encryption
+    # Add more packages here as needed
   ];
 
-  # Supports things like `nix run n#bash`
+  # Nix registry configuration for running specific commands
   nix.registry = {
     n.flake = nixpkgs;
   };
