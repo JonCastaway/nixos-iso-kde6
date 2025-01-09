@@ -1,5 +1,5 @@
 {
-  description = "NixOS with bcachefs";
+  description = "NixOS with bcachefs and KDE Plasma 6";
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
   };
