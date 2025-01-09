@@ -2,10 +2,10 @@
 
 {
   # Enable bcachefs support with the latest kernel packages
-  services.xserver.desktopManager.plasma6.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_latest + [ pkgs.bcachefs ];
-
-  services.xserver.desktopManager.plasma6.supportedFilesystems = lib.mkForce [ "bcachefs" "btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs" ];
+  services.xserver.desktopManager.plasma6 = {
+    kernelPackages = pkgs.linuxPackages_latest + [ pkgs.bcachefs ];
+    supportedFilesystems = lib.mkForce [ "bcachefs" "btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs" ];
+  };
 
   # System packages to be installed
   environment.systemPackages = with pkgs; [
